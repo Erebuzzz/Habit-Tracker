@@ -1,41 +1,33 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext", // 👈 Fix: Change from "NodeNext" to "ESNext"
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "module": "NodeNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "strict": true,
+    "strictNullChecks": false,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "bundler", // 👈 Fix: "Node" -> "bundler"
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".", // 👈 Ensures correct import resolution
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
+    "types": ["node"],  // ✅ Removed "firebase-functions"
+    "typeRoots": ["./node_modules/@types"],
     "skipLibCheck": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "functions/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

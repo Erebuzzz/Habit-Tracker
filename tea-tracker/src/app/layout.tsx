@@ -1,13 +1,11 @@
-"use client"; // ✅ Client Component
-
 import "./globals.css";
-import { AuthProvider } from "../context/AuthContext";
+import ClientProviders from "./ClientProviders";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
